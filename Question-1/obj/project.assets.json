@@ -8,23 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kUSh\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kUSh\\dotNet Programs\\Assignment-5\\Question-1\\Question-1.csproj",
+      "projectUniqueName": "D:\\DotNet Technologies\\Assignment-5\\Question-1\\Question-1.csproj",
       "projectName": "Question-1",
-      "projectPath": "C:\\Users\\kUSh\\dotNet Programs\\Assignment-5\\Question-1\\Question-1.csproj",
-      "packagesPath": "C:\\Users\\kUSh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kUSh\\dotNet Programs\\Assignment-5\\Question-1\\obj\\",
+      "projectPath": "D:\\DotNet Technologies\\Assignment-5\\Question-1\\Question-1.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\DotNet Technologies\\Assignment-5\\Question-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kUSh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",

@@ -123,43 +123,32 @@ class Car : IVehicle
     {
         return $"{this._name} ({this._number}) ";
     }
-
-    public override string ToString()
-    {
-        return "NAME: " + Type + " " + Seater + " , YEARLY SALARY: $" + RentType;
-    }
 }
 
 public interface IRentedVehicle
 {
-
     public DateTime StartDateOfRent
     {
         get;
         set;
     }
-
     public DateTime EndDateOfRent
     {
         get;
         set;
     }
-
     public double NoOfKmsTravelled
     {
         get;
         set;
     }
-
     public double AdvancePayment
     {
         get;
         set;
     }
     public string GetNameAndNumber();
-
     public double CalculateRent();
-
 }
 
 
@@ -241,19 +230,19 @@ class Program
     static void Main()
     {
         Console.WriteLine("\n");
-        Car Indica1 = new Car("petrol", 6, "Indica", "perDay", 5000, 2.5, "UP-80K-6547", new DateTime(2020, 09, 29), false);
+        Car Indica1 = new Car("petrol", 6, "Indica", "perDay", 3000, 2.5, "GJ-05-SX-1242", new DateTime(2020, 09, 29), false);
         Car Indica2 = new Car("diesel", 6, "Indica", "perDay", 2000, 0.5, "GJ-06-RJ-4381", new DateTime(2022, 02, 13), false);
-        Car Indica3 = new Car("diesel", 6, "Indica", "perKm", 120, 4, "UP-11K-8271", new DateTime(2019, 05, 09), false);
-        Car Indica4 = new Car("petrol", 6, "Indica", "perKm", 150, 1.5, "JK-01P-9875", new DateTime(2022, 02, 09), false);
+        Car Indica3 = new Car("diesel", 6, "Indica", "perKm", 120, 4, "GJ-06-QW-8271", new DateTime(2019, 05, 09), false);
+        Car Indica4 = new Car("petrol", 6, "Indica", "perKm", 150, 1.5, "RJ-01-SZ-9875", new DateTime(2022, 02, 09), false);
 
-        Car Qualis1 = new Car("petrol", 8, "Qualis", "perDay", 5000, 2, "AP-96E-6547", new DateTime(2022, 02, 09), false);
-        Car Qualis2 = new Car("diesel", 8, "Qualis", "perKm", 250, 1, "GJ-35K-5462", new DateTime(2020, 10, 10), false);
-        Car Qualis3 = new Car("petrol", 8, "Qualis", "perDay", 1500, 2.5, "UP-87A-1987", new DateTime(2022, 02, 05), false);
+        Car Qualis1 = new Car("petrol", 8, "Qualis", "perDay", 5000, 2, "DL-02-CD-6547", new DateTime(2022, 02, 09), false);
+        Car Qualis2 = new Car("diesel", 8, "Qualis", "perKm", 250, 1, "GJ-26-AK-5462", new DateTime(2020, 10, 10), false);
+        Car Qualis3 = new Car("petrol", 8, "Qualis", "perDay", 1500, 2.5, "UP-12-SA-1987", new DateTime(2022, 02, 05), false);
 
         Car DavidHarley1 = new Car("DavidHarley", "perDay", 6000, 1.5, "GJ-12-AK-1354", new DateTime(2021, 09, 15), false);
 
-        Car MBenzEClass1 = new Car("MBenzEClass", "perKm", 1500, 2, "DL-8SA-1254", new DateTime(2021, 03, 20), false);
-        Car MBenzEClass2 = new Car("MBenzEClass", "perDay", 10000, 0.5, "DL-89E-2158", new DateTime(2020, 02, 05), false);
+        Car MBenzEClass1 = new Car("MBenzEClass", "perKm", 1500, 2, "DL-02-UA-1254", new DateTime(2021, 03, 20), false);
+        Car MBenzEClass2 = new Car("MBenzEClass", "perDay", 10000, 0.5, "DL-03-ED-2158", new DateTime(2020, 02, 05), false);
 
         var list = new List<IRentedVehicle>();
 
@@ -293,7 +282,7 @@ class Program
         list.Add(mbenzeclass1);
 
         double rentForToday = 0;
-
+        // Overhere i am calculating the rent for taday
         foreach (var field in list)
         {
             if (field.EndDateOfRent == DateTime.Now.Date)
@@ -305,7 +294,7 @@ class Program
         Console.WriteLine($"\nRent for Today ({DateTime.Now}) is : Rs. {rentForToday}\n");
 
 
-        Console.WriteLine("\nCars on Rent: \n");
+        Console.WriteLine("\n||> Cars on Rent : \n");
         foreach (Car vehicle in Car._vehicleList)
         {
             if (vehicle.IsRented)
@@ -314,7 +303,7 @@ class Program
             }
 
         }
-        Console.WriteLine("\nCars Available: \n");
+        Console.WriteLine("\n||> Cars Available : \n");
         foreach (Car vehicle in Car._vehicleList)
         {
             if (!vehicle.IsRented)
@@ -323,8 +312,8 @@ class Program
             }
 
         }
-        Console.WriteLine($"\nVehicle in Maintainance : \n");
-
+        Console.WriteLine($"\n||> Vehicles are not available due to >> Maintainance : \n");
+        // here I am checking maintainance for particular car
         foreach (Car vehicle in Car._vehicleList)
         {
             if (!vehicle.IsRented && ((DateTime.Now - vehicle.LastMaintenanceDate).TotalDays) <= 15)
@@ -334,7 +323,7 @@ class Program
 
         }
 
-        Console.WriteLine($"\nEnter date for checking availability (dd/mm/yyyy): \n");
+        Console.Write($"\nEnter date for checking availability (dd/mm/yyyy) : ");
         DateTime inputDate = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
         Console.WriteLine("\n");
         foreach (Car vehicle in Car._vehicleList)
@@ -345,6 +334,7 @@ class Program
             }
 
         }
+        
         foreach (var field in list)
         {
             if (field.EndDateOfRent < inputDate)
